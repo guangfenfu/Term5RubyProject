@@ -1,0 +1,2 @@
+module ProductSnapShotHelper
+end
