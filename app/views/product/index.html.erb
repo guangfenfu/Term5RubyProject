@@ -1,15 +1,7 @@
 <h1>Product#index</h1>
-<%# <p>Find me in app/views/product/index.html.erb</p> %>
 
-<%= @product_collection.each do |product| %>
-  <div class="product">
-    <p>
-      <b>Name: </b> <%= link_to product.name, product %><br>
-      <b>Brand: </b> <%= product.brand.name %><br>
-      <b>Category: </b> <%= product.category.name %><br>
-      <b>Price: $</b> <%= product.price %><br>
-      <b>Description: </b> <%= product.description %><br>
-      <b>Image: </b> <%= product.image_link %>
-    </p>
-  </div>
-<% end %>
+<%= render partial: 'product',
+           collection: @product_collection,
+           locals:{show_link: true} %>
+
+

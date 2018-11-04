@@ -1,13 +1,9 @@
 <h1>Product#show</h1>
-<%# <p>Find me in app/views/product/show.html.erb</p> %>
 
-  <div class="product">
-    <p>
-      <b>Name: </b> <%= link_to @product.name, @product %><br>
-      <b>Brand: </b> <%= @product.brand.name %><br>
-      <b>Category: </b> <%= @product.category.name %><br>
-      <b>Price: $</b> <%= @product.price %><br>
-      <b>Description: </b> <%= @product.description %><br>
-      <b>Image: </b> <%= @product.image_link %>
-    </p>
-  </div>
+<%= render partial: 'product',
+          object: @product,
+          locals: {show_link:false} %>
+
+<p>
+  <%= link_to 'All products', root_path %>
+</p>
