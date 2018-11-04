@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_024939) do
+ActiveRecord::Schema.define(version: 2018_11_04_164652) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,9 +38,85 @@ ActiveRecord::Schema.define(version: 2018_11_04_024939) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.string "address"
+    t.string "city"
+    t.string "phone"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer "total_amount"
     t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_snap_shots", force: :cascade do |t|
+    t.string "order_id"
+    t.string "product_id"
+    t.string "name"
+    t.decimal "price"
+    t.integer "quantity"
+    t.string "image_link"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.string "image_link"
+    t.text "description"
+    t.integer "category_id"
+    t.integer "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.integer "tax_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tax_id"], name: "index_provinces_on_tax_id"
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.decimal "gst"
+    t.decimal "pst"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_snap_shots", force: :cascade do |t|
+    t.string "order_id"
+    t.string "customer_id"
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "province_id"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
