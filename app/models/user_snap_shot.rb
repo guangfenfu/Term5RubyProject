@@ -1,0 +1,2 @@
+class UserSnapShot < ApplicationRecord
+end

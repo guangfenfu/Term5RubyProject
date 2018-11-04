@@ -1,0 +1,2 @@
+class ProductSnapShot < ApplicationRecord
+end
