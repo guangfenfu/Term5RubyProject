@@ -2,10 +2,12 @@
   <div class="product">
     <p>
       <b>Name: </b> <%= link_to product.name, product %><br>
+      <% if product.image_link.present? %>
+        <%= image_tag product.image_link %><br>
+      <% end %>
       <b>Brand: </b> <%= product.brand.name %><br>
       <b>Category: </b> <%= product.category.name %><br>
       <b>Price: $</b> <%= product.price %><br>
       <b>Description: </b> <%= product.description %><br>
-      <b>Image: </b> <%= product.image_link %>
     </p>
   </div>
