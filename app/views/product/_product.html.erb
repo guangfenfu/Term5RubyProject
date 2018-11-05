@@ -1,9 +1,9 @@
 
   <div class="product">
     <p>
-      <b>Name: </b> <%= link_to product.name, product %><br>
+      <h2><b>Name: </b> <%= link_to product.name, product %></h2><br>
       <% if product.image_link.present? %>
-        <%= image_tag product.image_link %><br>
+        <%= image_tag product.image_link.url %><br>
       <% end %>
       <b>Brand: </b> <%= product.brand.name %><br>
       <b>Category: </b> <%= product.category.name %><br>
