@@ -1,6 +1,33 @@
 
+<!-- Side Nav, by caegories -->
+    <div class="col-3">
+      <div class="container-fluid" style="margin-top:20px;">
+        <div class="col-xl-12">
+          <div class="card bg-dark text-white">SHOP BY</div>
+          <aside class="widget woocommerce widget_product_categories">
+          <h6 class="widget-title" style="margin-top:20px;">BY CATEGORIES</h6>
+          <ul class="product-categories">
+
+          <% @categories.each do |category| %>
+            <li class="cat-item"><%= link_to category.name %></li>
+          <%end%>
+
+          </ul>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!--show all products -->
+<%= paginate @product_collection %>
+
 <%= render partial: 'product',
            collection: @product_collection,
            locals:{show_link: true} %>
+
+
 
 
