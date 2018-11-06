@@ -1,7 +1,7 @@
 
   <div class="product">
     <p>
-      <h2><b>Name: </b> <%= link_to product.name, product %></h2><br>
+      <h6><b>Name: </b> <%= link_to product.name, product %></h6><br>
       <% if product.image_link.present? %>
         <%= image_tag product.image_link.url %><br>
       <% end %>
