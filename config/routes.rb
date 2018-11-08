@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'about/index'
+  # get 'about/index'
   get 'user_snap_shot/index'
   get 'user_snap_shot/show'
   get 'product_snap_shot/index'
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :brand
   resources :category
   resources :product_category
+  resources :contact
+  resources :about
 
   root to: 'product#index'
 end
