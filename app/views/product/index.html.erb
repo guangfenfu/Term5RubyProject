@@ -9,7 +9,7 @@
           <ul class="product-categories">
 
           <% @categories.each do |category| %>
-            <li class="cat-item"><%= link_to category.name %></li>
+            <li class="cat-item"><%= link_to category.name, category %></li>
           <%end%>
 
           </ul>
