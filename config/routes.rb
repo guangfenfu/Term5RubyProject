@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'about/index'
   get 'user_snap_shot/index'
   get 'user_snap_shot/show'
   get 'product_snap_shot/index'
