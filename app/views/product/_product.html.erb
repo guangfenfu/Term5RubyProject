@@ -10,7 +10,9 @@
         <%= image_tag product.image_link.url %><br>
       <% end %>
       <b>Brand: </b> <%= product.brand.name %><br>
-      <b>Category: </b> <%= product.category.name %><br>
+      <%# <b>Category: </b> <%= product.category.name %>
+      <%# <b>Category: </b> <%= @categories.all %>
+      <b>Category: </b> <%= product.categories.map { |cat| cat.name }.join(", ") %><br>
       <b>Price: $</b> <%= product.price %><br>
       <b>Description: </b> <%= product.description %><br>
     </p>

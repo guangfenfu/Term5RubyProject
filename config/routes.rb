@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :product, only: [:index, :show]
   resources :brand
   resources :category
+  resources :product_category
 
   root to: 'product#index'
 end
