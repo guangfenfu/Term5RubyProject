@@ -1,7 +1,7 @@
 ActiveAdmin.register Product do
 
   # permit_params :name, :price, :image_link, :description, :brand_id, :category_id
-  permit_params :name, :price, :image_link, :description, :brand_id, product_categories: [:id, :product_id, :category_id, :_destroy]
+  permit_params :name, :price, :image_link, :description, :brand_id, product_categories_attributes: [:id, :product_id, :category_id, :_destroy]
 
   index do
     selectable_column

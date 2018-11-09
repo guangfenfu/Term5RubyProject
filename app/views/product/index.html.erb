@@ -8,8 +8,9 @@
           <h6 class="widget-title" style="margin-top:20px;">BY CATEGORIES</h6>
           <ul class="product-categories">
 
+          <p><%=@group%></p>
           <% @categories.each do |category| %>
-            <li class="cat-item"><%= link_to category.name, category %></li>
+            <li class="cat-item"><%= link_to category.name, product_index_path(category: category.id) %></li>
           <%end%>
 
           </ul>
