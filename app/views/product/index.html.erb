@@ -1,4 +1,18 @@
 
+<!-- Search -->
+<form method="get">
+  <select name="category">
+    <option value =  >All</option>
+    <% @categories.each do |category| %>
+      <option value = <%= category.id %>><%= category.name %></option>
+    <%end%>
+    <input type="text" name="search" />
+    <input type="submit" value="SUBMIT"/>
+  </select>
+</form>
+
+
+
 <!-- Side Nav, by caegories -->
     <div class="col-3">
       <div class="container-fluid" style="margin-top:20px;">
