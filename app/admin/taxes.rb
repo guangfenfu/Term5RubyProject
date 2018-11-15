@@ -1,4 +1,4 @@
 ActiveAdmin.register Tax do
-  permit_params :tax_id, :gst, :pst
+  permit_params :id, :gst, :pst
 
 end
