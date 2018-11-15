@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'shopping_cart/index'
+  # get 'shopping_cart/show'
   # get 'about/index'
   # get 'user_snap_shot/index'
   # get 'user_snap_shot/show'
@@ -22,6 +24,10 @@ Rails.application.routes.draw do
   resources :product_category
   resources :contact
   resources :about
+  resources :customer
+  resources :tax
+  resources :province
+  resources :shopping_cart
 
   root to: 'product#index'
 end
