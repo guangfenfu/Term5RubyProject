@@ -36,9 +36,10 @@
 
 
 
-<!--show all products -->
+<!--Pagination -->
 <%= paginate @product_collection %>
 
+<!--show all products -->
 <%= render partial: 'product',
            collection: @product_collection,
            locals:{show_link: true} %>
