@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get 'shopping_cart/index'
   # get 'shopping_cart/show'
   # get 'about/index'
