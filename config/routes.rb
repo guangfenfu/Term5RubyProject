@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
   # get 'shopping_cart/index'
   # get 'shopping_cart/show'
   # get 'about/index'
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :tax
   resources :province
   resources :shopping_cart
-  resources :user
+
 
   root to: 'product#index'
 end
