@@ -1,6 +1,4 @@
 class ProductController < ApplicationController
-  before_action :initialize_session
-
   def index
     if params[:category].present?
       group = ProductCategory.where(category_id: params[:category]).map{|x| x.product_id}
@@ -19,9 +17,11 @@ class ProductController < ApplicationController
   end
 
 
+
   def show
     @product = Product.find(params[:id])
   end
+
 
 
   def mark_as_favourite
@@ -33,13 +33,6 @@ class ProductController < ApplicationController
     redirect_to product_index_path
   end
 
-
-
-
-  private
-  def initialize_session
-    session[:shopping_cart] ||= Hash.new
-  end
 
 
 end

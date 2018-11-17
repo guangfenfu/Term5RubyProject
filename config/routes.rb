@@ -31,7 +31,14 @@ Rails.application.routes.draw do
   resources :about, only: [:index, :show]
   resources :tax, only: [:index, :show]
   resources :province, only: [:index, :show]
-  resources :shopping_cart, only: [:index, :show]
+  resources :shopping_cart, only: [:index, :show] do
+    member do
+      post :remove
+    end
+    collection do
+      post :remove_all
+    end
+  end
 
 
   root to: 'product#index'

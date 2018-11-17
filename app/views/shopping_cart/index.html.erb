@@ -1,14 +1,13 @@
+<%= link_to "Remove All", remove_all_shopping_cart_index_path, method: :post %>
+
 <% @cart.each do |item| %>
-
-
-
-<div>
-  <%= image_tag item.product.image_link, size:"20x20" %>
-  <%= item.product.name %>
-  <%= item.product.price %>
-  <%= item.quantity %>
-  <%= "$20.00" %>
-  <%= link_to "Remove", shopping_cart_path %>
-</div>
-
+  <div>
+    <%= image_tag item['product'].image_link.url, size:"50x50" %>
+    <%= item['product'].name %>
+    <%= item['product'].price %>
+    <%= item['quantity'] %>
+    <%= "$20.00" %>
+    <%= link_to "Remove", remove_shopping_cart_path(item['product'].id), method: :post %>
+  </div>
 <% end %>
+
