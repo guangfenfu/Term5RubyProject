@@ -18,16 +18,20 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :order
-  resources :product, only: [:index, :show]
-  resources :brand
-  resources :category
-  resources :product_category
-  resources :contact
-  resources :about
-  resources :tax
-  resources :province
-  resources :shopping_cart
+  resources :order, only: [:index, :show]
+  resources :product, only: [:index, :show] do
+    member do
+      post :mark_as_favourite
+    end
+  end
+  resources :brand, only: [:index, :show]
+  resources :category, only: [:index, :show]
+  resources :product_category, only: [:index, :show]
+  resources :contact, only: [:index, :show]
+  resources :about, only: [:index, :show]
+  resources :tax, only: [:index, :show]
+  resources :province, only: [:index, :show]
+  resources :shopping_cart, only: [:index, :show]
 
 
   root to: 'product#index'

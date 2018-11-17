@@ -6,7 +6,7 @@
   <div class="product">
     <p>
       <h6><b>Name: </b> <%= link_to product.name, product %></h6><br>
-      <%= link_to "Add to Cart" %><br>
+      <%= link_to "Add to Cart", mark_as_favourite_product_path(product), method: :post %><br>
       <% if product.image_link.present? %>
         <%= image_tag product.image_link.url %><br>
       <% end %>
