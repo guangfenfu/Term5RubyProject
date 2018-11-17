@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :about
   resources :tax
   resources :province
+  resources :shopping_cart
 
 
   root to: 'product#index'

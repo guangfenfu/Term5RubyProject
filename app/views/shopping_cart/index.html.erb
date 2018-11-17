@@ -1,0 +1,14 @@
+<% @cart.each do |item| %>
+
+
+
+<div>
+  <%= image_tag item.product.image_link, size:"20x20" %>
+  <%= item.product.name %>
+  <%= item.product.price %>
+  <%= item.quantity %>
+  <%= "$20.00" %>
+  <%= link_to "Remove", shopping_cart_path %>
+</div>
+
+<% end %>
