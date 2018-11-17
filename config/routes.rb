@@ -25,10 +25,8 @@ Rails.application.routes.draw do
   resources :product_category
   resources :contact
   resources :about
-  resources :customer
   resources :tax
   resources :province
-  resources :shopping_cart
 
 
   root to: 'product#index'
