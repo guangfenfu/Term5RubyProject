@@ -1,4 +1,6 @@
 class ShoppingCartController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @cart = []
     session[:shopping_cart].each do |product_id, quantity|
