@@ -1,20 +1,28 @@
 class ChargesController < ApplicationController
+
   def new
-    @amount = Order.amount
-    @description = "Your Order Payment"
+    @total = 0
+    session[:shopping_cart].each do |product_id, quantity|
+      @total += Product.find(product_id).price * quantity
+    end
   end
 
   def create
-    @amount = Order.amout
 
-    @customer = Stripe::Customer.create(
+    # Amount in cents
+    @amount = 0
+    session[:shopping_cart].each do |product_id, quantity|
+      @amount += Product.find(product_id).price * quantity
+    end
+
+    customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
     )
 
-    @charge = Stripe::Charge.create(
+    charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => (@amount * 100).to_i,
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )
@@ -23,4 +31,6 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+
+
 end
