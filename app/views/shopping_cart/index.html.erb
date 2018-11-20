@@ -21,10 +21,10 @@
               $<%= item['product'].price %>
             </div>
             <div class="col-sm-1">
-              <input type="text" style="width:100%;" value="<%= item['quantity'] %>" />
+              <input type="text" style="width:100%;" value="<%= item['quantity'] %>" onChange="updateAmount(<%= item['product'].id %>, this.value)" onkeyup="validate(this)" onafterpaste="validate(this)">
             </div>
             <div class="col-sm-2">
-              <%= "$20.00" %>
+              $<span id="<%= item['product'].id %>"><%= item['amount'] %></span>
             </div>
             <div class="col-sm-1">
               <%= link_to "Remove", remove_shopping_cart_path(item['product'].id), method: :post %>
@@ -35,4 +35,35 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-sm-12" style="text-align:right;">
+      <%# Total Amount %>
+      Total Amount: $<span id="total"><%= @total %></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12" style="text-align:right;">
+      <%# Make Payment %>
+      <%= link_to "Make a Payment" %>
+    </div>
+  </div>
+
 </div>
+
+
+
+
+<script>
+  function updateAmount(id, value){
+    $.get(`/shopping_cart/${id}/edit?quantity=${value}`)
+  }
+
+  function validate(obj){
+    if(obj.value.length==1){
+      obj.value=obj.value.replace(/[^0-9]/g,'')
+    }else{
+      obj.value=obj.value.replace(/\D/g,'')
+    }
+  }
+</script>

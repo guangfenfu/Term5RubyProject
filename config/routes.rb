@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'charges/new'
+  get 'charges/create'
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations'}
   # get 'shopping_cart/index'
   # get 'shopping_cart/show'
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   resources :about, only: [:index, :show]
   resources :tax, only: [:index, :show]
   resources :province, only: [:index, :show]
-  resources :shopping_cart, only: [:index, :show] do
+  resources :shopping_cart, only: [:index, :show, :edit] do
     member do
       post :remove
     end
@@ -39,7 +41,7 @@ Rails.application.routes.draw do
       post :remove_all
     end
   end
-
+  resources :charges, only: [:new, :create]
 
   root to: 'product#index'
 end

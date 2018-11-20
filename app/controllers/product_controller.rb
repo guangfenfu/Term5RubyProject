@@ -30,7 +30,9 @@ class ProductController < ApplicationController
     else
       session[:shopping_cart][params[:id]] += 1
     end
-    redirect_to product_index_path
+    # redirect_to product_index_path
+
+    render :js => "$('a#shopping_cart').html('Shopping Cart(#{session[:shopping_cart].length})')"
   end
 
 
